@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Getting Started with Berkeley DB, Java Edition High Availability Applications</title>
+    <link rel="stylesheet" href="gettingStarted.css" type="text/css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2" />
+    <link rel="start" href="index.html" title="Getting Started with Berkeley DB, Java Edition High Availability Applications" />
+    <link rel="next" href="preface.html" title="Preface" />
+  </head>
+  <body>
+    <div xmlns="" class="navheader">
+      <div class="libver">
+        <p>Library Version 12.1.7.3</p>
+      </div>
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Getting Started with Berkeley DB, Java Edition High Availability Applications</th>
+        </tr>
+        <tr>
+          <td width="20%" align="left"> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="preface.html">Next</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="book" lang="en" xml:lang="en">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="idp765808"></a>Getting Started with Berkeley DB, Java Edition High Availability Applications</h1>
+          </div>
+          <div>
+            <div class="legalnotice">
+              <a id="idm33936"></a>
+              <p class="legalnotice-title">
+                <b>Legal Notice</b>
+              </p>
+              <span>
+        <p>
+            This documentation is distributed under an open source license.
+            You may review the terms of this license at:
+            
+            <a class="ulink" href="http://www.oracle.com/technetwork/database/berkeleydb/downloads/jeoslicense-086837.html" target="_top">http://www.oracle.com/technetwork/database/berkeleydb/downloads/jeoslicense-086837.html</a>
+            
+        </p>
+
+        <p>
+                Oracle, Berkeley DB,
+                
+                <span>Berkeley DB Java Edition</span>
+                and
+                Sleepycat are trademarks or registered trademarks of
+                Oracle. All rights to these marks are reserved.
+                No third-party use is permitted without the
+                express prior written consent of Oracle.
+        </p>
+        <p>
+            <span class="trademark">Java</span>™ and all Java-based marks are a trademark
+            or registered trademark of Sun Microsystems,
+            Inc, in the United States and other countries.
+        </p>
+        <p>
+            Other names may be trademarks of their respective owners.
+        </p>
+        <p>
+            To obtain a copy of this document's original source code, please
+            submit a request to the Oracle Technology Network forum at:
+            
+            
+            <a class="ulink" href="https://forums.oracle.com/forums/forum.jspa?forumID=273" target="_top">https://forums.oracle.com/forums/forum.jspa?forumID=273</a>
+        </p>
+    </span>
+            </div>
+          </div>
+          <div>
+            <p class="pubdate">1-Feb-2017</p>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="toc">
+        <p>
+          <b>Table of Contents</b>
+        </p>
+        <dl>
+          <dt>
+            <span class="preface">
+              <a href="preface.html">Preface</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect1">
+                  <a href="preface.html#conventions">Conventions Used in this Book</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="preface.html#moreinfo">For More Information</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="preface.html#contact_us">Contact Us</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="introduction.html">1. Introduction</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect1">
+                  <a href="introduction.html#overview">Overview</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="introduction.html#intro_repgroup">Replication Group Members</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="introduction.html#repenvirons">Replicated Environments</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="introduction.html#masterselect">Selecting a Master</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="introduction.html#replicationstreams">Replication Streams</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="datamanagement.html">Managing Data Guarantees</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="datamanagement.html#durability-intro">Durability</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="datamanagement.html#consistency-intro">Managing Data Consistency</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="lifecycle.html">Replication Group Life Cycle</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="lifecycle.html#lifecycle-terms">Terminology</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="lifecycle.html#nodestates">Node States</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="lifecycle.html#lifecycle-new">New Replication Group Startup</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="lifecycle.html#lifecycle-established">Subsequent Startups</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="lifecycle.html#lifecycle-nodestartup">Replica Startup</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="lifecycle.html#lifecycle-masterfailover">Master Failover</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="lifecycle.html#twonode">Two Node Groups</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="progoverview.html">2. Replication API First Steps</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect1">
+                  <a href="progoverview.html#repenv">Using Replicated Environments</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="progoverview.html#configrepenv">Configuring Replicated Environments</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="exceptions.html">HA Exceptions</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="exceptions.html#master-exceptions">Master-Specific HA Exceptions</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="exceptions.html#replica-exceptions">Replica-Specific HA Exceptions</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="exceptions.html#handleexception">Replicated Environment Handle-Specific Exceptions</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="repenvironmentopen.html">Opening a Replicated Environment</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="replicawrites.html">Managing Write Requests at a Replica</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="replicawrites.html#using-statechangelistener">Using the StateChangeListener</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="replicawrites.html#repwriteexception">Catching ReplicaWriteException</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="secondary.html">Secondary Nodes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="timesync.html">Time Synchronization</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="two-node.html">Configuring Two-Node Groups</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="txn-management.html">3. Transaction Management</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect1">
+                  <a href="txn-management.html#durability">Managing Durability</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="txn-management.html#durabilitycontrols">Durability Controls</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="txn-management.html#commitsync">Commit File Synchronization</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="txn-management.html#managingacks">Managing Acknowledgements</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="consistency.html">Managing Consistency</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="consistency.html#setconsistencypolicy">Setting Consistency Policies</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="consistency.html#timeconsistency">Time Consistency Policies</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="consistency.html#commitpointconsistency">Commit Point Consistency Policies</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="availability.html">Availability</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="availability.html#writeavailability">Write Availability</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="availability.html#readavailability">Read Availability</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="cons_and_dur.html">Consistency and Durability Use Cases</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="cons_and_dur.html#outonthetown">Out on the Town</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="cons_and_dur.html#biolabs">Bio Labs, Inc</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="txnrollback.html">Managing Transaction Rollbacks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="runtransaction.html">Example Run Transaction Class</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="runtransaction.html#exruntransaction">RunTransaction Class</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="runtransaction.html#usingruntransaction">Using RunTransaction</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="utilities.html">4. Utilities</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect1">
+                  <a href="utilities.html#groupadmin">Administering the Replication Group</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="utilities.html#listmembers">Listing Group Members</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="utilities.html#locate-master">Locating the Current Master</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="utilities.html#node-addremove">Adding and Removing Nodes from the Group</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="logfile-restore.html">Restoring Log Files</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="dbbackup.html">Backing up a Replicated Application</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="enablerep.html">Converting Existing Environments for Replication</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="monitors.html">5. Writing Monitor Nodes</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect1">
+                  <a href="monitors.html#monitorclass">Monitor Class</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="events.html">Listening for Events</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="repexample.html">6. Replication Examples</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="chapter">
+              <a href="administration.html">7. Administration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect1">
+                  <a href="administration.html#hardware">Hardware</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="admintimesync.html">Time Synchronization</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="nodeconfig.html">Node Configuration</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="backups.html">Running Backups</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="addremovenodes.html">Adding and Removing Nodes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="sect1">
+                  <a href="hotupgrade.html">Upgrading a JE Replication Group</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="hotupgrade.html#idp1732624">Upgrade Process</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="hotupgrade.html#idp1736528">Things To Remember While Upgrading</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="hotupgrade.html#idp1735984">Handling Problems While Upgrading</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="sect1">
+                  <a href="groupreset.html">Resetting a Replication Group</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="election-override.html">A. Managing a Failure of the Majority</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="sect1">
+                  <a href="election-override.html#override-groupsize">Overriding the Electable Group Size</a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="sect2">
+                      <a href="election-override.html#set-gsize-override">Setting the Override</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="election-override.html#gsize-override-restore">Restoring the Default State</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="sect2">
+                      <a href="election-override.html#override-example">Override Example</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="preface.html">Next</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right" valign="top"> Preface</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

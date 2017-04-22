@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <title>Berkeley DB Java Edition Release Notes</title>
+</head>
+
+<body>
+
+<div class="docMain">
+<center>
+<h1>Oracle Berkeley DB Java Edition 12c R1<br>
+Release Notes</h1>
+</center>
+
+<!-- Note: RELEASE_VERSION and DATE are set by ant -->
+<p class="releaseInfo">Release 7.3.7, 2017-02-01 03:44:57 UTC</p>
+
+<h2><a name="overview">Overview</a></h2>
+<p>
+Berkeley DB Java Edition (JE) is a 100% pure Java embedded, transactional data
+store. It supplies a key/object data model with indexing, full transactional
+ACID support, POJO APIs and High Availability/Replication.
+<p>
+As of version 7.3, JE is licensed under the Apache 2.0 license. See the LICENSE
+file for the complete license.
+<p>
+Note that in JE 7.0 and later, the Java compatibility requirement for JE is
+Java SE 8.
+<p>
+JE is compatible with Java SE 8 (64-bit) and later, and has been tested and
+certified against Oracle JDK 8u73 and IBM J9 7.0. We encourage you to upgrade
+to the latest Java releases to take advantage of the latest bug fixes and
+performance improvements.
+<p>
+Be sure to see the <a href="changelog.html">change log</a> for information
+about upgrading from earlier releases.
+<p>
+This release contains a number of changes, including:
+<ol>
+    <li>
+        Added Arbiter functionality that adds additional write availability
+        for replication groups that have two Electable members. For details see
+        the javadoc for com.sleepycat.je.rep.arbiter.Arbiter.
+        [#25567]
+    </li>
+    <li>
+        Operation throughput statistics have been simplified and improved.
+        [#23792]
+    </li>
+    <li>
+        Data corruption is now detected as soon as possible using an internal
+        JE background task. This detects data corruption caused by media/disk
+        failure by reading the log sequentially and verifying checksums.
+        [#25221]
+    </li>
+    <li>
+        When a JE HA network restore is interrupted, the application is now
+        prevented from using the incomplete data set. The network restore must
+        be restarted when it is incomplete, and this rule is now enforced by JE.
+        [#25369]
+    </li>
+    <li>
+        EnvironmentConfig.LOG_N_DATA_DIRECTORIES has been deprecated. This
+        feature is not known to provide benefits beyond that of a simple RAID
+        configuration and will be removed in the next release, which is slated
+        for mid-April, 2017.
+    </li>
+</ol>
+For the complete and detailed list of changes, see
+<a href="changelog.html">the change log page</a>.<br>
+</p>
+<font size="1">Copyright (c) 2002, 2017 Oracle and/or its affiliates.  All rights reserved.</font>
+</div>
+<!-- end docMain -->
+</body>
+</html>
